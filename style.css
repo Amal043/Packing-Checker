@@ -1,8 +1,6 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     background-image: url('Background.jpg');
-    /*background: linear-gradient(45deg,rgb(112, 109, 109),rgb(141, 133, 252));*/
-    /* Or full URL */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -15,7 +13,7 @@ body {
     color: #fff;
 }
 
-/* Top Bar (Header replacement) */
+
 .topbar {
     display: flex;
     justify-content: space-between;
@@ -33,7 +31,7 @@ h1 {
     margin: 0;
 }
 
-/* Profile Controls (Right Side) */
+/* Profile Controls putting right side */
 .profile-controls {
     display: flex;
     align-items: center;
@@ -46,7 +44,7 @@ h1 {
     font-weight: 600;
 }
 
-/* Buttons and Select */
+/* Buttons and Select  */
 button,
 select {
     padding: 0.6rem 2rem;
@@ -68,12 +66,11 @@ button:hover {
 }
 
 select {
-    background: linear-gradient(135deg, #3a34f1,
-            #ff4b2b);
+    background: linear-gradient(135deg, #3a34f1, #ff4b2b);
     color: #fff;
 }
 
-/* Items Container */
+/* Item Holder */
 main {
     flex: 1;
     padding: 2rem;
@@ -84,7 +81,6 @@ main {
 
 .item {
     background: rgba(0, 0, 0, 0.6);
-    /* Transparent black */
     border-radius: 16px;
     padding: 1rem;
     display: flex;
@@ -92,8 +88,6 @@ main {
     justify-content: space-between;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     color: white;
-
-    /* White text */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -109,8 +103,49 @@ main {
     cursor: pointer;
 }
 
-/* Add Item Button at Bottom */
+/* Item addition button*/
 .action-btn {
     text-align: center;
     padding: 1rem;
+}
+
+/* Making Responsive */
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .profile-controls {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    button,
+    select {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .item input[type="checkbox"] {
+        align-self: flex-start;
+    }
 }
