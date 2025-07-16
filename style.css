@@ -1,0 +1,116 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('Background.jpg');
+    /*background: linear-gradient(45deg,rgb(112, 109, 109),rgb(141, 133, 252));*/
+    /* Or full URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Top Bar (Header replacement) */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Heading */
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Profile Controls (Right Side) */
+.profile-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#currentProfile {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Buttons and Select */
+button,
+select {
+    padding: 0.6rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button {
+    background: linear-gradient(120deg, #3a34f1, #ff4b2b);
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+select {
+    background: linear-gradient(135deg, #3a34f1,
+            #ff4b2b);
+    color: #fff;
+}
+
+/* Items Container */
+main {
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.item {
+    background: rgba(0, 0, 0, 0.6);
+    /* Transparent black */
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+
+    /* White text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item.left {
+    border: 2px dashed #ef4444;
+    background: #ffe6e6;
+    color: #b71c1c;
+}
+
+.item input[type="checkbox"] {
+    transform: scale(1.4);
+    margin-right: 0.75rem;
+    cursor: pointer;
+}
+
+/* Add Item Button at Bottom */
+.action-btn {
+    text-align: center;
+    padding: 1rem;
+}
