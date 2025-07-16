@@ -1,10 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-image: url('Background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,103 +11,146 @@ body {
     color: #fff;
 }
 
-
+/* Top Bar */
 .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.5);
+    padding: 1.2rem 2rem;
+    background: rgba(0, 0, 0, 0.35);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    flex-wrap: wrap;
 }
 
 /* Heading */
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 0;
+    font-weight: 700;
 }
 
-/* Profile Controls putting right side */
+/* Profile Controls */
 .profile-controls {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
 #currentProfile {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
+    color: #f1f1f1;
 }
 
-/* Buttons and Select  */
+/* Button & Select */
 button,
 select {
-    padding: 0.6rem 2rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-button {
-    background: linear-gradient(120deg, #3a34f1, #ff4b2b);
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 2.2rem;
+    font-size: 1rem;
+    font-weight: 700;
     color: white;
+    background: #111;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    z-index: 0;
+    overflow: hidden;
+    text-transform: uppercase;
+    transition: transform 0.2s ease-in-out;
 }
 
-button:hover {
-    transform: scale(1.1);
+button:hover,
+select:hover {
+    transform: scale(1.08);
 }
 
-select {
-    background: linear-gradient(135deg, #3a34f1, #ff4b2b);
-    color: #fff;
+/* Animated Border with POP */
+button::before,
+select::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: 20px;
+    background: linear-gradient(270deg,
+            #ff3cac,
+            #784ba0,
+            #2b86c5,
+            #42e695,
+            #ff3cac);
+    background-size: 800% 800%;
+    animation: borderSpin 8s linear infinite;
+    filter: brightness(1.2) blur(1.5px);
 }
 
-/* Item Holder */
+@keyframes borderSpin {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 400% 50%;
+    }
+}
+
+/* Items Container */
 main {
     flex: 1;
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
 }
 
+/* Card Items */
 .item {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 16px;
-    padding: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 1rem 1.2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     color: white;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
 }
 
 .item.left {
     border: 2px dashed #ef4444;
-    background: #ffe6e6;
+    background: rgba(255, 230, 230, 0.95);
     color: #b71c1c;
 }
 
 .item input[type="checkbox"] {
-    transform: scale(1.4);
+    transform: scale(1.5);
     margin-right: 0.75rem;
     cursor: pointer;
 }
 
-/* Item addition button*/
+/* Add Item Section */
 .action-btn {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
 }
 
-/* Making Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
     .topbar {
         flex-direction: column;
@@ -118,7 +159,7 @@ main {
     }
 
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .profile-controls {
@@ -130,8 +171,8 @@ main {
     button,
     select {
         width: 100%;
-        padding: 0.8rem;
-        font-size: 1rem;
+        padding: 1rem;
+        font-size: 1.1rem;
     }
 
     main {
@@ -142,7 +183,7 @@ main {
     .item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.6rem;
     }
 
     .item input[type="checkbox"] {
